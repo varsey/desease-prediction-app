@@ -1,5 +1,4 @@
-
-Web application using Streamlit from a machine learning model
+The web app takes in a user’s demographic and health indicators as input, and generate a prediction as to whether they’d develop heart disease in the next ten years
 
     * Machine learning model solving classification problem.
     * Serialized and saved ML models
