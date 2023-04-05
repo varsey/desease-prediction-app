@@ -13,14 +13,14 @@ def transform(data):
 
 
 class EDA:
-    '''https://www.kdnuggets.com/2022/03/build-machine-learning-web-app-5-minutes.html'''
+    """https://www.kdnuggets.com/2022/03/build-machine-learning-web-app-5-minutes.html"""
     @staticmethod
     def do_eda(col1, col2, col3, gender, age, education):
-        isSmoker = col1.selectbox("Are you currently a smoker?", ["Yes","No"])
+        is_smoker = col1.selectbox("Are you currently a smoker?", ["Yes","No"])
 
-        yearsSmoking = col2.number_input("Number of daily cigarettes")
+        years_smoking = col2.number_input("Number of daily cigarettes")
 
-        BPMeds = col3.selectbox("Are you currently on BP medication?", ["Yes","No"])
+        bp_meds = col3.selectbox("Are you currently on BP medication?", ["Yes","No"])
 
         stroke = col1.selectbox("Have you ever experienced a stroke?", ["Yes","No"])
 
@@ -42,10 +42,10 @@ class EDA:
 
         df_pred = pd.DataFrame(
             [
-                [gender, age, education, isSmoker, yearsSmoking, BPMeds, stroke,
+                [gender, age, education, is_smoker, years_smoking, bp_meds, stroke,
                     hyp, diabetes, chol, sys_bp, dia_bp, bmi, heart_rate,glucose]
             ],
-            columns=['gender', 'age', 'education', 'currentSmoker', 'cigsPerDay', 'BPMeds', 'prevalentStroke',
+            columns=['gender', 'age', 'education', 'currentSmoker', 'cigsPerDay', 'bp_meds', 'prevalentStroke',
                         'prevalentHyp', 'diabetes','totChol','sysBP','diaBP','BMI','heartRate','glucose']
         )
 
@@ -57,7 +57,7 @@ class EDA:
 
         df_pred['diabetes'] = df_pred['diabetes'].apply(lambda x: 1 if x == 'Yes' else 0)
 
-        df_pred['BPMeds'] = df_pred['BPMeds'].apply(lambda x: 1 if x == 'Yes' else 0)
+        df_pred['bp_meds'] = df_pred['bp_meds'].apply(lambda x: 1 if x == 'Yes' else 0)
 
         df_pred['currentSmoker'] = df_pred['currentSmoker'].apply(lambda x: 1 if x == 'Yes' else 0)
 
